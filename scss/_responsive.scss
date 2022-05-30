@@ -1,0 +1,278 @@
+@mixin tablet {
+    @media screen and (max-width: 768px) {
+        .attribution {
+            margin-top: 50px;
+        }
+
+
+        .game {
+            width: 70%;
+            margin-top: 40px;
+            padding: 15px;
+        
+            &-name {
+                font-size: 2rem;
+                line-height: 0.8;
+            }
+        
+            &-score {
+                width: 20%;
+                border-radius: 5px;
+        
+                &_title {
+                    letter-spacing: 1px;
+                }
+        
+                &_number {
+                    font-size: 2rem;
+                }
+            }
+        }
+
+
+        .game-icon {
+            margin-top: 100px;
+        
+            .game-text {
+                bottom: -200px;
+        
+                &_you, &_computer {
+                    font-size: 1rem;
+                }
+        
+                &_you {
+                    margin-right: 50px;
+                }
+        
+                &_computer {
+                    margin-left: 50px;;
+                }
+            }
+        
+            #game-icon_paper {
+                left: 210px;
+            }
+                
+            #game-icon_rock {
+                left: 300px;
+            }
+                
+            #game-icon_scissors {
+                left: 400px;
+            }
+        
+            .computer {
+                left: 54%;
+            }
+        }
+
+
+        .game-rules {
+            margin-right: 0;
+            justify-content: center;
+        
+            &_btn {
+                width: 20%;
+                border-radius: 8px;
+                letter-spacing: 3px;
+            }
+        }
+
+
+        .game-rules_container {
+            height: 750px;
+            width: 375px;
+            top: 0;
+            bottom: 0;
+            left: 25%;
+            border-radius: 0;
+        
+            &-head {
+                display: block;
+                margin-right: 0;
+                color: $dark-text;
+                text-transform: uppercase;
+                text-align: center;
+                padding: 100px;
+                padding-bottom: 80px;
+            }
+        
+            &-close {
+                cursor: pointer;
+                position: absolute;
+                bottom: 10%;
+                left: 45%;
+            }
+        }
+
+
+        .game-item_move {
+            left: 20% !important;
+        }
+
+        .glow {
+            box-shadow: inset -3px -15px 5px rgba($color: #000000, $alpha: 0.3), 0 0 0 20px #2b3956, 0 0 0 50px #273655, 0 0 0 110px #223351 !important;
+        }
+
+        .decision {
+            font-size: 2.5rem;
+            letter-spacing: normal;
+            top: 75%;
+            margin: 0 auto;
+            left: 15%;
+            margin-top: 25px;
+    
+        
+            &_play-again {
+                padding: 15px;
+                width: 80%;
+                margin-top: 15px;
+                position: absolute;
+                top: 0;
+                left: 100%;
+            }
+        }
+
+        .border {
+            left: 54%;
+        }
+    }
+}
+
+
+@mixin mobile {
+    @media screen and (max-width: 375px) {
+        .attribution {
+            margin-top: 30px;
+        }
+
+
+        .game {
+            width: 90%;
+            margin-top: 40px;
+            padding: 15px;
+        
+            &-name {
+                font-size: 1.5rem;
+                line-height: 0.8;
+            }
+        
+            &-score {
+                width: 30%;
+                border-radius: 7px;
+        
+                &_title {
+                    letter-spacing: 1px;
+                }
+        
+                &_number {
+                    font-size: 2rem;
+                }
+            }
+        }
+
+
+        .game-icon {
+            margin-top: 100px;
+        
+            .game-text {
+                bottom: -200px;
+        
+                &_you, &_computer {
+                    font-size: 0.8rem;
+                }
+        
+                &_you {
+                    margin-right: 0;
+                }
+        
+                &_computer {
+                    margin-left: 50px;;
+                }
+            }
+        
+            #game-icon_paper {
+                left: 25px;
+            }
+                
+            #game-icon_rock {
+                left: 115px;
+            }
+                
+            #game-icon_scissors {
+                left: 200px;
+            }
+        
+            .computer {
+                left: 54%;
+            }
+        }
+
+
+        .game-rules {
+            margin-right: 0;
+            justify-content: center;
+        
+            &_btn {
+                width: 35%;
+                border-radius: 8px;
+                letter-spacing: 3px;
+            }
+        }
+
+
+        .game-rules_container {
+            height: 750px;
+            width: 375px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            border-radius: 0;
+        
+            &-head {
+                display: block;
+                margin-right: 0;
+                color: $dark-text;
+                text-transform: uppercase;
+                text-align: center;
+                padding: 100px;
+                padding-bottom: 80px;
+            }
+        
+            &-close {
+                cursor: pointer;
+                position: absolute;
+                bottom: 10%;
+                left: 45%;
+            }
+        }
+
+
+        .game-item_move {
+            left: 5% !important;
+        }
+
+        .glow {
+            box-shadow: inset -3px -15px 5px rgba($color: #000000, $alpha: 0.3), 0 0 0 10px #2b3956, 0 0 0 30px #273655, 0 0 0 70px #223351 !important;
+        }
+
+        .decision {
+            font-size: 2.5rem;
+            letter-spacing: normal;
+            top: 75%;
+            margin: 0 auto;
+            left: 15%;
+    
+        
+            &_play-again {
+                padding: 15px;
+                width: 80%;
+                margin-top: 15px;
+            }
+        }
+
+        .border {
+            left: 54%;
+        }
+    }
+}
