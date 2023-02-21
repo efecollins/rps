@@ -1,0 +1,31 @@
+.picked {
+    visibility: hidden;
+    opacity: 0;
+    @include transition_ease-in-out_opa_vib;
+}
+
+.pickText {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.game-item_move {
+    margin-top: 50px;
+    left: 31% !important;
+    transition: left 0.5s ease-in-out 0s;
+}
+
+.display_computer-selection {
+    visibility: visible !important;
+    opacity: 1 !important;
+    @include transition_ease-in-out_opa_vib2;
+}
+
+.glow {
+    box-shadow: inset -3px -15px 5px rgba($color: #000000, $alpha: 0.3), 0 0 0 60px #2b3956, 0 0 0 130px #273655, 0 0 0 210px #223351 !important;
+}
+
+.game-icons_zindex {
+    z-index: -1 !important;
+    transition: z-index 0s ease-in-out 0s;
+}

@@ -1,0 +1,347 @@
+@import '_config';
+@import '_responsive';
+@import '_game';
+
+.attribution {
+    position: relative;
+    font-size: 11px;
+    text-align: center;
+    bottom: 10px;
+    width: 100%;
+    color: $white;
+
+    a {
+        color: hsl(228, 45%, 44%);
+    }
+}
+
+body {
+    background: radial-gradient($bg1, $bg2) fixed;
+}
+
+// Game
+
+.game {
+    display: flex;
+    color: $white;
+    border: 3px solid $header-outline;
+    border-radius: 10px;
+    justify-content: space-between;
+    width: 50%;
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+    cursor: default;
+
+    &-name {
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        line-height: 0.9;
+        font-weight: 700;
+    }
+
+    &-score {
+        background: $white;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 700;
+        padding: 10px;
+        width: 20%;
+        border-radius: 10px;
+
+        &_title {
+            color: $score-text;
+            letter-spacing: .2rem;
+        }
+
+        &_number {
+            color: $dark-text;
+            display: flex;
+            font-size: 4rem;
+            justify-content: center;
+        }
+    }
+}
+
+
+// Game Icons
+
+.game-icon {
+    margin-top: 130px;
+    position: relative;
+
+    .game-text {
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        color: $white;
+        text-align: center;
+        position: relative;
+        bottom: 70px;
+        cursor: default;
+
+        &_you, &_computer {
+            visibility: hidden;
+            opacity: 0;
+            @include transition_ease-in-out_opa_vib2;
+            display: inline;
+            font-size: 1.5rem;
+        }
+
+        &_you {
+            margin-right: 50px;
+        }
+
+        &_computer {
+            margin-left: 150px;;
+        }
+    }
+
+    &_bg {
+        display: block;
+        margin: auto;
+    }
+
+    #game-icon_paper {
+        position: absolute;
+        top: -40px;
+        left: 580px;
+        background: linear-gradient($paper1, $paper2);
+        z-index: 2;
+    }
+        
+    #game-icon_rock {
+        position: absolute;
+        bottom: 0;
+        left: 680px;
+        background: linear-gradient($rock1, $rock2);
+        z-index: 2;
+    }
+        
+    #game-icon_scissors {
+        position: absolute;
+        top: -40px;
+        left: 800px;
+        background: linear-gradient($scissors1, $scissors2);
+        z-index: 2;
+    }
+
+    &_button {
+        position: relative;
+        top: 10px;
+        background-color: $white;
+        border: none;
+        padding: 30px;
+        border-radius: 100%;
+        box-shadow: inset -2px 6px 1px 3px $inner-shadow;
+        cursor: pointer;
+    }
+
+    &_general {
+        height: 160px;
+        width: 150px;
+        text-align: center;
+        border-radius: 100%;
+        box-shadow: inset -3px -15px 5px rgba($color: #000000, $alpha: 0.3);
+        cursor: pointer;
+    }
+
+    .computer {
+        position: absolute;
+        margin-top: 10px;
+        left: 57%;
+        top: 0;
+        width: 150px;
+        height: 160px;
+        background-color: rgba($color: #000000, $alpha: 0.1);
+        visibility: hidden;
+        opacity: 0;
+        @include transition_ease-in-out_opa_vib2;
+        border-radius: 100%;
+
+        &-rock_bg {
+            background: linear-gradient($rock1, $rock2);
+        }
+        &-paper_bg {
+            background: linear-gradient($paper1, $paper2);
+        }
+        &-scissors_bg {
+            background: linear-gradient($scissors1, $scissors2);
+        }
+    }
+}
+
+// Game Rules Button
+
+.game-rules {
+    flex-direction: row-reverse;
+    display: flex;
+    margin-right: 50px;
+    margin-top: 50px;
+
+    &_btn {
+        padding: 10px;
+        width: 10%;
+        text-transform: uppercase;
+        border-radius: 10px;
+        letter-spacing: 1px;
+        background: transparent;
+        color: $white;
+        border: 1px solid $white;
+        cursor: pointer;
+        transition: ease-in-out 0.3s;
+
+        &:hover {
+            color: $bg1;
+            border-color: $bg1;
+            background: $white;
+            font-weight: 600;
+        }
+    }
+}
+
+// Game Rules Container
+
+.game-rules_container {
+    visibility: hidden;
+    opacity: 0;
+    @include transition_ease-in-out_opa_vib;
+    position: absolute;
+    background: $white;
+    height: 400px;
+    width: 430px;
+    bottom: 25px;
+    left: 550px;
+    padding: 3%;
+    border-radius: 3%;
+    z-index: 3;
+
+    &-head {
+        display: inline-block;
+        margin-right: 220px;
+
+        &:hover {
+            cursor: default;
+        }
+    }
+
+    &-rules {
+        display: block;
+        margin: auto;
+        margin-top: 20px;
+    }
+
+    &-close {
+        cursor: pointer;
+        transition: 0.1s ease-in-out;
+
+        &:hover {
+            fill: $paper1; 
+            border: none;
+        }
+    }
+}
+
+[draggable = true] {
+    cursor: move;
+}
+
+.open  {
+    visibility: visible;
+    opacity: 1;
+}
+
+.overlay {
+    position: fixed;
+    display: none;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    background-color: #2f2f2f;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.border {
+    position: absolute;
+    top: 0;
+    left: 57%;
+    margin-top: 10px;
+    height: 160px;
+    width: 150px;
+    text-align: center;
+    border-radius: 100%;
+    box-shadow: inset -3px -15px 5px rgba($color: #000000, $alpha: 0.3);
+    visibility: hidden;
+    opacity: 0;
+    @include transition_ease-in-out_opa_vib2;
+    z-index: -1;
+
+    &-inner {
+        position: relative;
+        top: 10px;
+        background-color: $white;
+        border: none;
+        padding: 30px;
+        border-radius: 100%;
+        box-shadow: inset -2px 6px 1px 3px $inner-shadow;
+        cursor: pointer;
+        width: min-content;
+        margin: auto;
+    }
+}
+
+.decision {
+    color: $white;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 700;
+    position: absolute;
+    text-align: center;
+    z-index: 1;
+    top: 0;
+    margin: 0 auto;
+    margin-top: 25px;
+    left: 43%;
+
+    &_play-again {
+        text-transform: uppercase;
+        cursor: pointer;
+        padding: 10px 35px;
+        margin-top: 5px;
+        letter-spacing: 2.5px;
+        border: none;
+        border-radius: 5px;
+        color: $dark-text;
+        font-weight: 600;
+        transition: color 0.2s ease-in-out 0s !important;
+        visibility: hidden;
+        opacity: 0;
+
+        &:hover {
+            color: $rock1;
+        }
+    }
+
+    &-win, &-lose, &-draw {
+        height: 5px;
+        visibility: hidden;
+        opacity: 0;
+        @include transition_ease-in-out_opa_vib2;
+    }
+
+    &-win {
+        margin-top: 10px;
+    }
+
+    &-draw {
+        margin-bottom: 30px;
+    }
+}
+
+@include tablet;
+@include mobile;
